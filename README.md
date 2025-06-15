@@ -24,6 +24,7 @@ Beberapa contoh precedure yang digunakan :
 
 
 <img src="assets/img/procedure.png" alt="Procedure" width="600">
+
 CREATE TRIGGER trg_update_ketersediaan_kamar
 AFTER UPDATE ON bookings
 FOR EACH ROW
