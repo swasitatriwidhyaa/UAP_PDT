@@ -13,17 +13,15 @@ Stored procedure adalah instruksi yang disimpan di database untuk mengeksekusi o
 <img src="assets/img/procedure.png" alt="Procedure" width="600">
 
 Beberapa contoh precedure yang digunakan :
+bookRoom
+Melakukan proses pemesanan dan menghitung total harga secara otomatis. Jika harga tidak ditemukan, transaksi dibatalkan.
+CALL bookRoom(room_id, user_id, start_date, end_date, @total_price);
+
 
 
 **-- TRIGGERS --**
 
 <img src="assets/img/Trigger.png" alt="Procedure" width="600">
-
-
-**-- FUNCTIONS --**
-
-
-<img src="assets/img/procedure.png" alt="Procedure" width="600">
 
 CREATE TRIGGER trg_update_ketersediaan_kamar
 AFTER UPDATE ON bookings
@@ -41,6 +39,13 @@ BEGIN
         WHERE id = NEW.room_id;
     END IF;
 END;
+
+
+**-- FUNCTIONS --**
+
+
+<img src="assets/img/procedure.png" alt="Procedure" width="600">
+
 
 
 
