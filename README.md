@@ -5,12 +5,34 @@
 
 **DETAIL KONSEP**
 
--- STORED PROCEDURE --
+**-- STORED PROCEDURE --**
 
 Stored procedure adalah instruksi yang disimpan di database untuk mengeksekusi operasi penting secara otomatis. Dalam sistem terdistribusi, ia menjamin efisiensi, konsistensi, dan keamanan eksekusi antar node dan pengguna.
 
 <img src="assets/img/procedure.png" alt="Procedure" width="600">
 
 Beberapa contoh precedure yang digunakan :
+
+
+**-- FUNCTIONS --**
+<img src="assets/img/procedure.png" alt="Procedure" width="600">
+
+
+
+**-- TRANSACTION --**
+
+Implementasi transaction
+
+    START TRANSACTION;
+    
+    UPDATE bookings
+    SET status = 'confirmed'
+    WHERE id = booking_id_param;
+    
+    UPDATE indekos
+    SET status_ketersediaan = 'terisi'
+    WHERE id = v_room_id;
+    
+    COMMIT;
 
 
