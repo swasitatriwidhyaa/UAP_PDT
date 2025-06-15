@@ -5,6 +5,22 @@
 
 **DETAIL KONSEP**
 
+**-- TRANSACTION --**
+
+Setiap procedure di SiSRI dilengkapi dengan START TRANSACTION dan COMMIT/ROLLBACK untuk menjamin bahwa proses hanya akan disimpan ke database jika seluruh tahapan berhasil.
+Implementasi transaction
+
+    START TRANSACTION;
+    
+    -- perhitungan harga dan insert booking
+    
+    IF price IS NULL THEN
+        ROLLBACK;
+    ELSE
+        COMMIT;
+    END IF;
+
+
 **-- STORED PROCEDURE --**
 
 Stored procedure adalah instruksi yang disimpan di database untuk mengeksekusi operasi penting secara otomatis. Dalam sistem terdistribusi, ia menjamin efisiensi, konsistensi, dan keamanan eksekusi antar node dan pengguna.
@@ -75,18 +91,3 @@ calculateTotalPrice(room_id, start_date, end_date)<br>
 Fungsi alternatif sederhana dengan perhitungan internal.
 
 
-
-**-- TRANSACTION --**
-
-Setiap procedure di SiSRI dilengkapi dengan START TRANSACTION dan COMMIT/ROLLBACK untuk menjamin bahwa proses hanya akan disimpan ke database jika seluruh tahapan berhasil.
-Implementasi transaction
-
-    START TRANSACTION;
-    
-    -- perhitungan harga dan insert booking
-    
-    IF price IS NULL THEN
-        ROLLBACK;
-    ELSE
-        COMMIT;
-    END IF;
