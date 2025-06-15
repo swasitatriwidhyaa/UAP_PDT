@@ -3,3 +3,11 @@ siSRI (Sistem Rekomendasi Indekos) adalah sebuah platform yang dikembangkan deng
 
 <img src="assets/img/siSri.png" alt="Tampilan Aplikasi" width="1000">
 
+**DETAIL KONSEP**
+
+-- STORED PROCEDURE --
+Stored procedure adalah instruksi yang disimpan di database untuk mengeksekusi operasi penting secara otomatis. Dalam sistem terdistribusi, ia menjamin efisiensi, konsistensi, dan keamanan eksekusi antar node dan pengguna.
+
+Beberapa contoh precedure yang digunakan :
+
+
