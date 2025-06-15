@@ -15,6 +15,11 @@ Stored procedure adalah instruksi yang disimpan di database untuk mengeksekusi o
 Beberapa contoh precedure yang digunakan :
 
 
+**-- TRIGGERS --**
+
+<img src="assets/img/Trigger.png" alt="Procedure" width="600">
+
+
 **-- FUNCTIONS --**
 
 
