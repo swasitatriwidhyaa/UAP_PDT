@@ -56,11 +56,15 @@ Menolak pemesanan dan melakukan rollback jika status tidak memenuhi syarat.
 
 
 **-- FUNCTIONS --**
-
+CalculateBookingDuration(start_date, end_date)<br>
+Menghitung jumlah hari pemesanan.
     SELECT CalculateBookingDuration('2025-06-15', '2025-06-17'); -- Hasil: 2
 
+CalculateBookingTotalPrice(room_id, start_date, end_date)<br>
+Mengalikan harga per hari dengan durasi, berdasarkan data indekos.
     SELECT CalculateBookingTotalPrice(1, '2025-06-15', '2025-06-17'); -- Hasil: harga * 2
-
+calculateTotalPrice(room_id, start_date, end_date)<br>
+Fungsi alternatif sederhana dengan perhitungan internal.
 
 
 
