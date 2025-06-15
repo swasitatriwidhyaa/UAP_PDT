@@ -71,6 +71,8 @@ Fungsi alternatif sederhana dengan perhitungan internal.
 
 
 **-- TRANSACTION --**
+
+
 Setiap procedure di SiSRI dilengkapi dengan START TRANSACTION dan COMMIT/ROLLBACK untuk menjamin bahwa proses hanya akan disimpan ke database jika seluruh tahapan berhasil.
 Implementasi transaction
 
