@@ -59,21 +59,24 @@ Menolak pemesanan dan melakukan rollback jika status tidak memenuhi syarat.
 
 
 CalculateBookingDuration(start_date, end_date)<br>
+
 Menghitung jumlah hari pemesanan.
+
     SELECT CalculateBookingDuration('2025-06-15', '2025-06-17'); -- Hasil: 2
 
 CalculateBookingTotalPrice(room_id, start_date, end_date)<br>
+
 Mengalikan harga per hari dengan durasi, berdasarkan data indekos.<br>
 
     SELECT CalculateBookingTotalPrice(1, '2025-06-15', '2025-06-17'); -- Hasil: harga * 2 
     
 calculateTotalPrice(room_id, start_date, end_date)<br>
+
 Fungsi alternatif sederhana dengan perhitungan internal.
 
 
 
 **-- TRANSACTION --**
-
 
 Setiap procedure di SiSRI dilengkapi dengan START TRANSACTION dan COMMIT/ROLLBACK untuk menjamin bahwa proses hanya akan disimpan ke database jika seluruh tahapan berhasil.
 Implementasi transaction
@@ -87,6 +90,3 @@ Implementasi transaction
     ELSE
         COMMIT;
     END IF;
-
-
-
