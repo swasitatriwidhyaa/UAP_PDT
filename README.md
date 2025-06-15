@@ -13,16 +13,23 @@ Stored procedure adalah instruksi yang disimpan di database untuk mengeksekusi o
 <img src="assets/img/procedure.png" alt="Procedure" width="600">
 
 Beberapa contoh precedure yang digunakan :
+
 bookRoom
+
 Melakukan proses pemesanan dan menghitung total harga secara otomatis. Jika harga tidak ditemukan, transaksi dibatalkan.
+
     CALL bookRoom(room_id, user_id, start_date, end_date, @total_price);
 
 ApproveBookingAndSetRoomStatus
+
 Menyetujui pemesanan sekaligus mengubah status kamar menjadi terisi.
+
     CALL ApproveBookingAndSetRoomStatus(booking_id);
 
 RejectBooking
+
 Menolak pemesanan dan melakukan rollback jika status tidak memenuhi syarat.
+
     CALL RejectBooking(booking_id);
 
 
@@ -30,22 +37,22 @@ Menolak pemesanan dan melakukan rollback jika status tidak memenuhi syarat.
 
 <img src="assets/img/Trigger.png" alt="Procedure" width="600">
 
-CREATE TRIGGER trg_update_ketersediaan_kamar
-AFTER UPDATE ON bookings
-FOR EACH ROW
-BEGIN
-    IF NEW.status = 'confirmed' AND OLD.status != 'confirmed' THEN
-        UPDATE indekos
-        SET status_ketersediaan = 'terisi'
-        WHERE id = NEW.room_id;
-    END IF;
-
-    IF NEW.status = 'rejected' AND OLD.status = 'confirmed' THEN
-        UPDATE indekos
-        SET status_ketersediaan = 'tersedia'
-        WHERE id = NEW.room_id;
-    END IF;
-END;
+    CREATE TRIGGER trg_update_ketersediaan_kamar
+    AFTER UPDATE ON bookings
+    FOR EACH ROW
+    BEGIN
+        IF NEW.status = 'confirmed' AND OLD.status != 'confirmed' THEN
+            UPDATE indekos
+            SET status_ketersediaan = 'terisi'
+            WHERE id = NEW.room_id;
+        END IF;
+    
+        IF NEW.status = 'rejected' AND OLD.status = 'confirmed' THEN
+            UPDATE indekos
+            SET status_ketersediaan = 'tersedia'
+            WHERE id = NEW.room_id;
+        END IF;
+    END;
 
 
 **-- FUNCTIONS --**
