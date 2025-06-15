@@ -56,6 +56,8 @@ Menolak pemesanan dan melakukan rollback jika status tidak memenuhi syarat.
 
 
 **-- FUNCTIONS --**
+
+
 CalculateBookingDuration(start_date, end_date)<br>
 Menghitung jumlah hari pemesanan.
     SELECT CalculateBookingDuration('2025-06-15', '2025-06-17'); -- Hasil: 2
