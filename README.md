@@ -57,8 +57,9 @@ Menolak pemesanan dan melakukan rollback jika status tidak memenuhi syarat.
 
 **-- FUNCTIONS --**
 
+    SELECT CalculateBookingDuration('2025-06-15', '2025-06-17'); -- Hasil: 2
 
-<img src="assets/img/procedure.png" alt="Procedure" width="600">
+    SELECT CalculateBookingTotalPrice(1, '2025-06-15', '2025-06-17'); -- Hasil: harga * 2
 
 
 
@@ -69,14 +70,13 @@ Implementasi transaction
 
     START TRANSACTION;
     
-    UPDATE bookings
-    SET status = 'confirmed'
-    WHERE id = booking_id_param;
+    -- perhitungan harga dan insert booking
     
-    UPDATE indekos
-    SET status_ketersediaan = 'terisi'
-    WHERE id = v_room_id;
-    
-    COMMIT;
+    IF price IS NULL THEN
+        ROLLBACK;
+    ELSE
+        COMMIT;
+    END IF;
+
 
 
