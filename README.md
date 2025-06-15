@@ -63,7 +63,7 @@ Menghitung jumlah hari pemesanan.
 CalculateBookingTotalPrice(room_id, start_date, end_date)<br>
 Mengalikan harga per hari dengan durasi, berdasarkan data indekos.<br>
 
-    SELECT CalculateBookingTotalPrice(1, '2025-06-15', '2025-06-17'); -- Hasil: harga * 2 <br>
+    SELECT CalculateBookingTotalPrice(1, '2025-06-15', '2025-06-17'); -- Hasil: harga * 2 
     
 calculateTotalPrice(room_id, start_date, end_date)<br>
 Fungsi alternatif sederhana dengan perhitungan internal.
